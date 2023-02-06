@@ -1,5 +1,5 @@
 import Directory from "../../components/directory/directory.component";
-import GlobalStyle from "../../global.styles.js";
+import { Outlet } from 'react-router-dom'
 
 const Home = () => {
 
@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
 		<>
-			<GlobalStyle />
+			<Outlet />
 			<Directory categories={categories} />
 		</>
   );
