@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import ErrorPage from "../pages/error-page/error-page";
+import ErrorPage from "../pages/error-page/error-page.component";
 import Home from "../pages/home/home.component";
 import Navigation from "../pages/navigation/naviagation.component";
-import SignIn from "../pages/sign-in/sign-in.component";
+import Authentication from "../pages/authentication/authentication.component";
 
 const Shop = () => {
 	return (
@@ -46,8 +46,8 @@ const router = createBrowserRouter([
 				errorElement: <ErrorPage/>,
 			},
 			{
-				path: "sign-in",
-				element: <SignIn />,
+				path: "auth",
+				element: <Authentication />,
 				errorElement: <ErrorPage/>,
 			},
 			{
