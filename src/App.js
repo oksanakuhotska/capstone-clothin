@@ -1,9 +1,9 @@
-import Home from './pages//home/home.component';
 
-const App = () => {
-	return (
-		<Home />
-	)
-}
+// const App = () => {
+// 	return (
+// 		<>
+// 		</>
+// 	)
+// }
 
-export default App;
+// export default App;
