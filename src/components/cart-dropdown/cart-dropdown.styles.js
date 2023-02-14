@@ -1,5 +1,7 @@
-.cart-dropdown-container {
-  position: absolute;
+import styled from "styled-components";
+
+export const CartDropdownContainer = styled.div`
+	position: absolute;
   width: 240px;
   height: 340px;
   display: flex;
@@ -26,4 +28,4 @@
   button {
     margin-top: auto;
   }
-}
+`;

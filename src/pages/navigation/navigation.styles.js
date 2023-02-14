@@ -5,6 +5,7 @@ export const NavigationContainer = styled.div`
 	width: 100%;
 	display: flex;
 	gap: 15px;
+	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 25px;
 
@@ -23,14 +24,10 @@ export const NavLinksContainer = styled.div`
 	justify-content: flex-end;
 	padding-left: 10px; 
 
-	.nav-link + .nav-link {
-		padding-left: 15px 
-	}
-
 	.nav-link {
 	cursor: pointer;
 	text-transform: uppercase;
-	padding: 10px 0;
+	padding: 10px 15px;
 	min-width: 50px;
 
 		&:hover {

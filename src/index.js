@@ -8,6 +8,7 @@ import GlobalStyle from './global.styles';
 
 import { UserProvider } from './contexts/user.context';
 import { ProductsProvider } from './contexts/products.context';
+import { CartProvider } from './contexts/cart.context';
 
 import './index.style.css';
 
@@ -16,8 +17,10 @@ root.render(
   <React.StrictMode>
 		<UserProvider>
 			<ProductsProvider>
-				<RouterProvider router={router} />
-				<GlobalStyle />
+				<CartProvider>
+					<RouterProvider router={router} />
+					<GlobalStyle />
+				</CartProvider>
 			</ProductsProvider>
 		</UserProvider>
   </React.StrictMode>
