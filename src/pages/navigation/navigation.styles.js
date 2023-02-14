@@ -9,24 +9,32 @@ export const NavigationContainer = styled.div`
 	margin-bottom: 25px;
 
 	.logo-container {
-		width: 70px;
-		padding: 25px;
+		height: 100%;
+    width: 70px;
+    padding: 25px;
+	}
+`;
+
+export const NavLinksContainer = styled.div`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-left: 10px; 
+
+	.nav-link + .nav-link {
+		padding-left: 15px 
 	}
 
 	.nav-link {
-	padding: 10px 15px;
 	cursor: pointer;
 	text-transform: uppercase;
+	padding: 10px 0;
+	min-width: 50px;
 
 		&:hover {
 			text-decoration: underline;
 		}
 	}
-`;
-
-export const NavLinksContainer = styled.div`
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
 `;
