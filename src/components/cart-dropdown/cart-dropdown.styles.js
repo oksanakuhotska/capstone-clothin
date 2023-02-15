@@ -22,7 +22,8 @@ export const CartDropdownContainer = styled.div`
     height: 240px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    /* overflow: scroll; */
+		overflow: auto;
   }
 
   button {
