@@ -4,12 +4,7 @@ import ErrorPage from "../pages/error-page/error-page.component";
 import Home from "../pages/home/home.component";
 import Navigation from "../pages/navigation/naviagation.component";
 import Authentication from "../pages/authentication/authentication.component";
-
-const Shop = () => {
-	return (
-		<h1>SHop is HERE</h1>
-	)
-};
+import Shop from "../pages/shop/shop.component";
 
 const Contact = () => {
 	return (
