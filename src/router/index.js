@@ -5,6 +5,7 @@ import Home from "../pages/home/home.component";
 import Navigation from "../pages/navigation/naviagation.component";
 import Authentication from "../pages/authentication/authentication.component";
 import Shop from "../pages/shop/shop.component";
+import Checkout from "../pages/checkout/checkout.component";
 
 const Contact = () => {
 	return (
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
 				index: true,
 			},
 			{
-				path: "shop",
+				path: "shop/*",
 				element: <Shop />,
 				errorElement: <ErrorPage/>,
 			},
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
 			{
 				path: "cart",
 				element: <Cart />,
+				errorElement: <ErrorPage/>,
+			},
+			{
+				path: "checkout",
+				element: <Checkout />,
 				errorElement: <ErrorPage/>,
 			},
 		],

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const ProductsContainer = styled.div`
+export const ShopContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); 
 	align-content: space-between;
-	column-gap: 10px;
+	column-gap: 20px;
 	row-gap: 50px;
 
 	@media (min-width: 987px) {
