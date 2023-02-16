@@ -12,7 +12,7 @@ export const NavigationContainer = styled.div`
 	.logo-container {
 		height: 100%;
     width: 70px;
-    padding: 25px;
+    padding: 25px 0px;
 	}
 `;
 
@@ -27,8 +27,12 @@ export const NavLinksContainer = styled.div`
 	.nav-link {
 	cursor: pointer;
 	text-transform: uppercase;
-	padding: 10px 15px;
+	padding: 10px;
 	min-width: 50px;
+
+	@media (min-width: 568px) {
+		padding: 10px 15px; 
+	}
 
 		&:hover {
 			text-decoration: underline;
