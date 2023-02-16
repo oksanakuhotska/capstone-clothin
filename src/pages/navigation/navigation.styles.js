@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 export const NavigationContainer = styled.div`
 	height: 70px;
 	width: 100%;
@@ -8,23 +10,23 @@ export const NavigationContainer = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 25px;
-
-	.logo-container {
-		height: 100%;
-    width: 70px;
-    padding: 25px 0px;
-	}
 `;
 
-export const NavLinksContainer = styled.div`
+export const LogoContainer = styled(Link)`
+	width: 70px;
+	padding: 25px 0px;
+`;
+
+export const NavLinks = styled.div`
 	width: 100%;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	padding-left: 10px; 
+`;
 
-	.nav-link {
+export const NavLink = styled(Link)`
 	cursor: pointer;
 	text-transform: uppercase;
 	padding: 10px;
@@ -34,8 +36,7 @@ export const NavLinksContainer = styled.div`
 		padding: 10px 15px; 
 	}
 
-		&:hover {
-			text-decoration: underline;
-		}
+	&:hover {
+		text-decoration: underline;
 	}
 `;
