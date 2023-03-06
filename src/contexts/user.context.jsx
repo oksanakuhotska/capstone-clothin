@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 import { onAuthStateChangedListener, 	createUserDocumentFromAuth } from "../utils/firebase/firebase.utils";
 
 // as an actual value you want to access
@@ -7,8 +7,17 @@ export const UserContext = createContext({
 	currentUser: null,
 });
 
+// export const 
+
+const userReducer = (state, action) => {
+	const { type, payload } = action;
+
+	
+	
+}
+
 export const UserProvider = ({ children }) => {
-	const [currentUser, setCurrentUser] = useState(null);
+	// const [currentUser, setCurrentUser] = useState(null);
 	const value = { currentUser, setCurrentUser };
 
 	useEffect(() => {

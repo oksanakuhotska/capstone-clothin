@@ -22,6 +22,7 @@ export const NavLinks = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	justify-content: flex-end;
 	padding-left: 10px; 
 `;
