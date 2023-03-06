@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 
 import { RouterProvider } from "react-router-dom";
 import router from './router';
-import GlobalStyle from './global.styles';
+import { GlobalStyle } from './global.styles';
 
 import { UserProvider } from './contexts/user.context';
 import { CategoriesProvider } from './contexts/categories.context';
