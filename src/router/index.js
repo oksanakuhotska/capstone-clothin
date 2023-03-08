@@ -24,46 +24,39 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Navigation />,
-		errorElement: <ErrorPage/>,
+		errorElement: <ErrorPage />,
 		children: [
 			{
-				element: <Home />,
-				errorElement: <ErrorPage/>,
-				index: true,
-			},
-			{
-				path: "shop/*",
-				element: <Shop />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "contact",
-				element: <Contact />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "auth",
-				element: <Authentication />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "cart",
-				element: <Cart />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "checkout",
-				element: <Checkout />,
-				errorElement: <ErrorPage/>,
-			},
+				errorElement: <ErrorPage />,
+				children: [
+					{
+						element: <Home />,
+						index: true,
+					},
+					{
+						path: "shop/*",
+						element: <Shop />,
+					},
+					{
+						path: "contact",
+						element: <Contact />,
+					},
+					{
+						path: "auth",
+						element: <Authentication />,
+					},
+					{
+						path: "cart",
+						element: <Checkout />,
+					},
+					{
+						path: "checkout",
+						element: <Checkout />,
+					},
+				],
+			}
 		],
 	},
-	
-	// {
-	// 	path: "/shop",
-	// 	element: <Shop />,
-	// 	errorElement: <ErrorPage/>,
-	// },
 ]);
 
 export default router;
