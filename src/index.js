@@ -6,8 +6,6 @@ import App from './App';
 
 import { store } from './store/store';
 
-import { CartProvider } from './contexts/cart.context';
-
 import { GlobalStyle } from './global.styles';
 import './index.style.css';
 
@@ -16,10 +14,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 		<Provider store={store}>
-			<CartProvider>
-				<App />
-				<GlobalStyle />
-			</CartProvider>
+			<App />
+			<GlobalStyle />
 		</Provider>
   </React.StrictMode>
 );
