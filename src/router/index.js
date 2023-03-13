@@ -6,19 +6,14 @@ import Navigation from "../pages/navigation/naviagation.component";
 import Authentication from "../pages/authentication/authentication.component";
 import Shop from "../pages/shop/shop.component";
 import Checkout from "../pages/checkout/checkout.component";
+import SignUpAuth from "../pages/signup-auth/signup-auth.component";
+import SignInAuth from "../pages/signin-auth/signin-auth.component";
 
 const Contact = () => {
 	return (
 		<h1>Contact is HERE</h1>
 	)
 };
-
-const Cart = () => {
-	return (
-		<h1>Cart is HERE</h1>
-	)
-};
-
 
 const router = createBrowserRouter([
 	{
@@ -44,6 +39,14 @@ const router = createBrowserRouter([
 					{
 						path: "auth",
 						element: <Authentication />,
+					},
+					{
+						path: "signup",
+						element: <SignUpAuth />,
+					},
+					{
+						path: "login",
+						element: <SignInAuth />,
 					},
 					{
 						path: "cart",
