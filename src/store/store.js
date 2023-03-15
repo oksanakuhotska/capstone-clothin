@@ -8,7 +8,12 @@ import { rootReducer } from "./root-reducer"; // загальний редюсе
 import logger from "redux-logger"; // show state
 // import { loggerMiddleware } from "./middlewaew/logger";
 
-import thunk from 'redux-thunk';
+// використовується тільки 1 бібліотека сайд ефект
+// import thunk from 'redux-thunk';
+
+// import redux-sage for side effects
+import createSagaMiddleware from "@redux-saga";
+import { rootSaga } from "./root-saga";
 
 const persistConfig = {
 	key: 'root',
@@ -16,12 +21,15 @@ const persistConfig = {
 	whitelist: ['cart'],
 };
 
+const sagaMiddleware = createSagaMiddleware();
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // const middleWares = [loggerMiddleware];
 const middleWares = [
 	process.env.NODE_ENV !== 'production' && logger, 
-	thunk // added thunk
+	// thunk // added thunk
+	sagaMiddleware,
 ].filter(Boolean);
 
 const composeEnchancer = 
@@ -32,6 +40,11 @@ const composeEnchancer =
 
 const composedEnhancers = composeEnchancer(applyMiddleware(...middleWares));
 
-export const store = createStore(persistedReducer, undefined, composedEnhancers);
+export const store = createStore(
+	persistedReducer, 
+	undefined, 
+	composedEnhancers);
+
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
