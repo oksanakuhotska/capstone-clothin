@@ -12,7 +12,7 @@ import logger from "redux-logger"; // show state
 // import thunk from 'redux-thunk';
 
 // import redux-sage for side effects
-import createSagaMiddleware from "@redux-saga";
+import createSagaMiddleware from "redux-saga";
 import { rootSaga } from "./root-saga";
 
 const persistConfig = {
