@@ -1,29 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+// import { PersistGate } from 'redux-persist/integration/react';
 
-import { RouterProvider } from "react-router-dom";
-import router from './router';
+import App from './App';
+
+import { store, persistor } from './store/store';
+
 import { GlobalStyle } from './global.styles';
-
-import { UserProvider } from './contexts/user.context';
-import { CategoriesProvider } from './contexts/categories.context';
-import { CartProvider } from './contexts/cart.context';
-
 import './index.style.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-		<UserProvider>
-			<CategoriesProvider>
-				<CartProvider>
-					<RouterProvider router={router} />
-					<GlobalStyle />
-				</CartProvider>
-			</CategoriesProvider>
-		</UserProvider>
+		<Provider store={store}>
+			{/* <PersistGate loading={null} persistor={persistor}> */}
+			<App />
+			<GlobalStyle />
+			{/* </PersistGate> */}
+		</Provider>
   </React.StrictMode>
 );
-
-reportWebVitals();

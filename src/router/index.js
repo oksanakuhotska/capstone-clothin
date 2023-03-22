@@ -6,6 +6,8 @@ import Navigation from "../pages/navigation/naviagation.component";
 import Authentication from "../pages/authentication/authentication.component";
 import Shop from "../pages/shop/shop.component";
 import Checkout from "../pages/checkout/checkout.component";
+import SignUpAuth from "../pages/signup-auth/signup-auth.component";
+import SignInAuth from "../pages/signin-auth/signin-auth.component";
 
 const Contact = () => {
 	return (
@@ -13,57 +15,51 @@ const Contact = () => {
 	)
 };
 
-const Cart = () => {
-	return (
-		<h1>Cart is HERE</h1>
-	)
-};
-
-
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Navigation />,
-		errorElement: <ErrorPage/>,
+		errorElement: <ErrorPage />,
 		children: [
 			{
-				element: <Home />,
-				errorElement: <ErrorPage/>,
-				index: true,
-			},
-			{
-				path: "shop/*",
-				element: <Shop />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "contact",
-				element: <Contact />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "auth",
-				element: <Authentication />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "cart",
-				element: <Cart />,
-				errorElement: <ErrorPage/>,
-			},
-			{
-				path: "checkout",
-				element: <Checkout />,
-				errorElement: <ErrorPage/>,
-			},
+				errorElement: <ErrorPage />,
+				children: [
+					{
+						element: <Home />,
+						index: true,
+					},
+					{
+						path: "shop/*",
+						element: <Shop />,
+					},
+					{
+						path: "contact",
+						element: <Contact />,
+					},
+					{
+						path: "auth",
+						element: <Authentication />,
+					},
+					{
+						path: "signup",
+						element: <SignUpAuth />,
+					},
+					{
+						path: "login",
+						element: <SignInAuth />,
+					},
+					{
+						path: "cart",
+						element: <Checkout />,
+					},
+					{
+						path: "checkout",
+						element: <Checkout />,
+					},
+				],
+			}
 		],
 	},
-	
-	// {
-	// 	path: "/shop",
-	// 	element: <Shop />,
-	// 	errorElement: <ErrorPage/>,
-	// },
 ]);
 
 export default router;
