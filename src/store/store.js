@@ -3,9 +3,9 @@ import { configureStore } from "@reduxjs/toolkit";
 // import { persistStore, persistReducer } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage';
 
-import { rootReducer } from "./root-reducer"; // загальний редюсер
+import logger from "redux-logger"; // show logs state
 
-import logger from "redux-logger"; // show state
+import { rootReducer } from "./root-reducer"; // загальний редюсер
 
 const middleWares = [process.env.NODE_ENV === 'development' && logger].filter(
   Boolean
@@ -27,9 +27,13 @@ const middleWares = [process.env.NODE_ENV === 'development' && logger].filter(
 
 // const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
-export const store = ({
+export const store = configureStore({
 	reducer: rootReducer,
-	// middleware: middleWares,
+
+	middleware: (getDefaultMiddleware) => 
+		getDefaultMiddleware({
+			serializableCheck: false // turn off serializable 
+		}).concat(middleWares),
 })
 
 
