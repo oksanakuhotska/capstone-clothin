@@ -19,8 +19,8 @@ exports.hendler = async (event) => {
 		console.log({ error });
 
 		return {
-			status: 400,
-			body: JSON.stringify({ error })
+			statusCode: 400,
+			body: JSON.stringify({ error }),
 		}
 	}
 }
