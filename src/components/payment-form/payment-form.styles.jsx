@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import Button from '../button/button.component'
+
 export const PaymentFormContainer = styled.div`
 	height: 300px;
 	display: flex;
@@ -14,3 +16,8 @@ export const FormContainer = styled.form`
 	min-width: 500px;
 `;
 FormContainer.displayName = 'FormContainer';
+
+export const PaymentButton = styled(Button)`
+	margin-left: auto;
+	margin-top: 30px;
+`;
