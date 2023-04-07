@@ -48,7 +48,7 @@ const PaymentForm = () => {
     if (paymentResult.error) {
       alert(paymentResult.error.message);
     } else {
-      if (paymentResult.paymentIntent.statusCode === 'succeeded') {
+      if (paymentResult.paymentIntent.status === 'succeeded') {
         alert('Payment Successful!');
       }
     }
