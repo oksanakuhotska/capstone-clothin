@@ -22,7 +22,7 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCvLJK5BhKbUiIPPJ024EMqe28mDHygHoM",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
   authDomain: "capstone-clothing-cfc45.firebaseapp.com",
   projectId: "capstone-clothing-cfc45",
   storageBucket: "capstone-clothing-cfc45.appspot.com",
@@ -45,17 +45,19 @@ export const signInWithGoogleRegirect = () => signInWithRedirect(auth, googlePro
 
 export const db = getFirestore();
 
-export const addCollectionsAndDocuments = async (collectionKey, objectsToAdd) => {
-	const collectionRef = collection(db, collectionKey);
-	const batch = writeBatch(db);
-
-	objectsToAdd.forEach((object) => {
-		const docRef = doc(collectionRef, object.title.toLowerCase());
-		batch.set(docRef, object);
-	});
-
-	await batch.commit();
-	console.log('done');
+export const addCollectionAndDocuments = async (	
+  collectionKey,	
+  objectsToAdd,	
+  field	
+) => {	
+  const collectionRef = collection(db, collectionKey);	
+  const batch = writeBatch(db);	
+  objectsToAdd.forEach((object) => {	
+    const docRef = doc(collectionRef, object.title.toLowerCase());	
+    batch.set(docRef, object);	
+  });	
+  await batch.commit();	
+  console.log('done');	
 };
 
 export const getCategoriesAndDocuments = async () => {
