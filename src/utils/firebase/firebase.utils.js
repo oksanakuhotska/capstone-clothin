@@ -22,7 +22,7 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCvLJK5BhKbUiIPPJ024EMqe28mDHygHoM",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
   authDomain: "capstone-clothing-cfc45.firebaseapp.com",
   projectId: "capstone-clothing-cfc45",
   storageBucket: "capstone-clothing-cfc45.appspot.com",
