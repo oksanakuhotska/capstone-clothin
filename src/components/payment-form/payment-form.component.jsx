@@ -22,7 +22,7 @@ const PaymentForm = () => {
       return;
     }
     setIsProcessingPayment(true);
-    const response = await fetch('/.netlify/functions/create-payment-intent', {
+    const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const PaymentForm = () => {
     if (paymentResult.error) {
       alert(paymentResult.error.message);
     } else {
-      if (paymentResult.paymentIntent.status === 'succeeded') {
+      if (paymentResult.paymentIntent.statusCode === 'succeeded') {
         alert('Payment Successful!');
       }
     }
