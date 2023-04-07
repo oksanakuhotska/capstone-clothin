@@ -16,53 +16,48 @@ const PaymentForm = () => {
 	const currentUser = useSelector(selectCurrentUser);
 	const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-	const paymentHendler = async (e) => {
-		e.preventDefault();
-
-		if (!stripe || !elements) {
-			return;
-		}
-
-		setIsProcessingPayment(true);
-
-		const response = await fetch('/.netlify/functions/create-payment-intent', {	
-      method: 'post',	
-      headers: {	
-        'Content-Type': 'application/json',	
+	const paymentHandler = async (e) => {
+    e.preventDefault();
+    if (!stripe || !elements) {
+      return;
+    }
+    setIsProcessingPayment(true);
+    const response = await fetch('/.netlify/functions/create-payment-intent', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
       },
-			body: JSON.stringify({ amount: amount * 100 })
-		}).then(res => res.json());
+      body: JSON.stringify({ amount: amount * 100 }),
+    }).then((res) => {
+      return res.json();
+    });
 
-		const { 
-			paymentIntent: { client_secret },
-		} = response;
+    const clientSecret = response.paymentIntent.client_secret;
 
-		console.log(client_secret);
+    const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: currentUser ? currentUser.displayName : 'Yihua Zhang',
+        },
+      },
+    });
 
-		const paymentResult = await stripe.confirmCardPayment(client_secret, {
-			payment_method: {
-				card: elements.getElement(CardElement),
-				billing_details: {
-					name: currentUser ? currentUser.displayName : 'Guest',
-				},
-			},
-		});
+    setIsProcessingPayment(false);
 
-		setIsProcessingPayment(false);
-
-		if (paymentResult.error) {
-			alert(paymentResult.error);
-		} else {
-			if (paymentResult.paymentIntent.status === 'succeeded') {
-				alert('Payment Successful');
-			}
-		}
-	}
+    if (paymentResult.error) {
+      alert(paymentResult.error.message);
+    } else {
+      if (paymentResult.paymentIntent.status === 'succeeded') {
+        alert('Payment Successful!');
+      }
+    }
+  };
 
 	return(
 		<PaymentFormContainer>
-			<FormContainer onSubmit={paymentHendler}>
-				<h2>Credit Card Payment: </h2>
+			<FormContainer onSubmit={paymentHandler}>
+				<h2>Credit Card Payment:</h2>
 				<CardElement />
 				<PaymentButton 
 					isLoading={isProcessingPayment}
